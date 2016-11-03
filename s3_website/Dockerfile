@@ -11,6 +11,4 @@ RUN gem install s3_website
 
 RUN npm install -g yarn
 
-ENTRYPOINT ["s3_website"]
-
-CMD ["--help"]
+ENTRYPOINT ["/bin/bash"]
