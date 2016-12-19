@@ -1,4 +1,4 @@
-FROM joseronierison/java7
+FROM ignicaodigital/java7
 
 RUN mkdir /var/dynamodb_wd
 WORKDIR /var/dynamodb_wd
