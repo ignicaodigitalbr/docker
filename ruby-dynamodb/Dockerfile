@@ -1,5 +1,7 @@
 FROM ignicaodigital/ruby-java7
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN mkdir /var/dynamodb_wd
 WORKDIR /var/dynamodb_wd
 
