@@ -1,4 +1,4 @@
-FROM ruby:2.3.2
+FROM ignicaodigital/ruby2
 
 RUN \
     export DEBIAN_FRONTEND=noninteractive && \
