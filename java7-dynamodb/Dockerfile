@@ -3,6 +3,8 @@ FROM ignicaodigital/java7
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir /var/dynamodb_wd
+RUN mkdir /var/dynamodb_local
+
 WORKDIR /var/dynamodb_wd
 
 RUN \
