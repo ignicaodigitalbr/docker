@@ -10,8 +10,6 @@ RUN \
     tar xfz dynamodb_local_latest.tar.gz
 
 ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=.", "-jar", "/var/dynamodb_wd/DynamoDBLocal.jar", "-dbPath", "/var/dynamodb_local"]
-CMD ["-port", "8000"]
+CMD ["-port", "8000", "--sharedDb"]
 
 EXPOSE 8000
-
-VOLUME ["/var/dynamodb_local", "/var/dynamodb_wd"]
