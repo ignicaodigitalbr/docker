@@ -9,8 +9,7 @@ RUN \
     apt-get update && \
     apt-get install -y curl && \
     curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y build-essential && \
-    apt-get install -y nodejs
+    apt-get install -y build-essential nodejs git
 
 RUN \
     wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz && \
