@@ -6,6 +6,6 @@ RUN mkdir /buckets
 
 WORKDIR /buckets
 
-EXPOSE 80
+EXPOSE 4567
 
-CMD ["fakes3", "--root=/buckets", "--port=80"]
+CMD ["fakes3", "--root=/buckets", "--port=4567"]
