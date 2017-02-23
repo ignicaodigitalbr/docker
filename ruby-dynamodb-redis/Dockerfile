@@ -45,6 +45,14 @@ WORKDIR /var/dynamodb_wd
 RUN wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz && \
     tar xfz dynamodb_local_latest.tar.gz
 
+#Pip
+RUN \
+  curl -O https://bootstrap.pypa.io/get-pip.py && \
+  python get-pip.py && \
+  pip install --upgrade awsebcli awscli boto3==1.3.0 && \
+  aws configure set preview.cloudfront true && \
+  rm -rf get-pip.py
+
 EXPOSE 8000 6379
 
 CMD ["service", "redis-server", "start"]
