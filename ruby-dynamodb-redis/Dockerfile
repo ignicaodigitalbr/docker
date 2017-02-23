@@ -46,6 +46,11 @@ RUN wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local
     tar xfz dynamodb_local_latest.tar.gz
 
 #Pip
+RUN apt-get update && \
+    apt-get install -y build-essential python-dev ruby-full zip --no-install-recommends && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
 RUN \
   curl -O https://bootstrap.pypa.io/get-pip.py && \
   python get-pip.py && \
