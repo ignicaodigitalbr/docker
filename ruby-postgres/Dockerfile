@@ -15,7 +15,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN echo "/etc/init.d/postgresql start && exit 0" > /etc/rc.local
 RUN  /etc/init.d/postgresql start &&\
     su postgres -c "psql --command \"CREATE USER kmbuser with password 'kmbuser';\" " &&\
-    su postgres -c "psql --command \"CREATE DATABASE kmb_test with owner kmbuser;\" "
+    su postgres -c "psql --command \"CREATE DATABASE kmb_test with owner kmbuser;\" " &&\
+    su postgres -c "psql --command \"ALTER USER kmbuser CREATEDB;\" "
 
 USER postgres
 
@@ -24,6 +25,4 @@ RUN echo "listen_addresses='*'" >> /etc/postgresql/9.4/main/postgresql.conf
 
 EXPOSE 5432
 
-
-CMD ["/usr/lib/postgresql/9.4/bin/postgres", "-D", "/var/lib/postgresql/9.4/main", "-c", "config_file=/etc/postgresql/9.4/main/postgresql.conf"]
 USER root
