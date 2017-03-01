@@ -41,3 +41,5 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
     rm -rf get-pip.py
 
 EXPOSE 6379 8000
+
+ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=.", "-jar", "/var/dynamodb_wd/DynamoDBLocal.jar", "-dbPath", "/var/dynamodb_local", "-sharedDb", "-port", "8000"]
