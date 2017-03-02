@@ -6,7 +6,7 @@ RUN apk add ca-certificates wget
 RUN update-ca-certificates   
 
 # Java 7
-RUN apk add git tar openjdk7 mksh socat
+RUN apk add git tar openssh openjdk7 mksh socat
 RUN apk add apache-ant --update-cache --repository http://dl-4.alpinelinux.org/alpine/edge/testing/ --allow-untrusted
 RUN rm -rf /var/cache/apk/*
 
