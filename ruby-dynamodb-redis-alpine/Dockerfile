@@ -2,7 +2,7 @@ FROM ruby:2.3-alpine
 
 # System dependencies 
 RUN apk update && \
-    apk add ca-certificates wget redis git build-base python tar openssh openjdk7 mksh socat && \
+    apk add ca-certificates tzdata wget redis git build-base python tar openssh openjdk7 mksh socat && \
     rm -rf /var/cache/apk/* && \
     update-ca-certificates   
 
