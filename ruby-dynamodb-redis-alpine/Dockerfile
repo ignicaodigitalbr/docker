@@ -16,16 +16,21 @@ ENV PATH $PATH:$ANT_HOME/bin
 # redis 
 RUN apk add --update redis && rm -rf /var/cache/apk/*
 
-RUN redis-server /etc/redis.conf
+CMD ["redis-server", "/etc/redis.conf"]
 
 # DynamoDB
 RUN mkdir /var/dynamodb_wd /var/dynamodb_local
 
-WORKDIR /var/dynamodb
+WORKDIR /var/dynamodb_wd
 
 RUN wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz && \
     tar xfz dynamodb_local_latest.tar.gz
 
+RUN /usr/bin/java -Djava.library.path=. -jar /var/dynamodb_wd/DynamoDBLocal.jar -dbPath /var/dynamodb_local -sharedDb -port 8000 &
+
+#fakes3
+RUN gem install fakes3
+RUN fakes3 -r /mnt/fakes3_root -H s3.local -p 4567 &
 
 # pip
 RUN apk add --update python
@@ -42,4 +47,4 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && \
 
 EXPOSE 6379 8000
 
-ENTRYPOINT ["/usr/bin/java", "-Djava.library.path=.", "-jar", "/var/dynamodb_wd/DynamoDBLocal.jar", "-dbPath", "/var/dynamodb_local", "-sharedDb", "-port", "8000"]
+ENTRYPOINT ["/bin/sh"] 
