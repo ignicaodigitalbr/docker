@@ -88,8 +88,8 @@ RUN mkdir /var/dynamodb_wd /var/dynamodb_local && \
 # pip
 RUN python -m ensurepip && \
     rm -r /usr/lib/python*/ensurepip && \
-    pip install --upgrade pip setuptools awsebcli awscli boto3==1.3.0 && \
-    aws configure set preview.cloudfront true && \
+    pip install --upgrade pip setuptools awscli boto3==1.3.0 && \
+    aws configure set preview.cloudfront true
 
 #fakes3
 RUN gem install fakes3 && \
