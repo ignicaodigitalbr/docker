@@ -2,14 +2,18 @@ FROM ignicaodigital/java7
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN mkdir /var/dynamodb_wd
-WORKDIR /var/dynamodb_wd
-
 RUN \
     apt-get update && \
-    apt-get install -y curl && \
-    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y build-essential nodejs git
+    apt-get install -y curl build-essential git
+
+RUN curl -L http://git.io/n-install -o ./n-install && \
+    chmod +x n-install && \
+    /bin/bash ./n-install -y
+
+RUN /root/n/bin/n 4.3.2
+
+RUN mkdir /var/dynamodb_wd
+WORKDIR /var/dynamodb_wd
 
 RUN \
     wget http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz && \
