@@ -10,7 +10,7 @@ RUN curl -L http://git.io/n-install -o ./n-install && \
     chmod +x n-install && \
     /bin/bash ./n-install -y
 
-RUN /root/n/bin/n 4.3.2
+RUN /root/n/bin/n 6.10.0
 
 RUN mkdir /var/dynamodb_wd
 WORKDIR /var/dynamodb_wd
