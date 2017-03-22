@@ -8,4 +8,4 @@ WORKDIR /buckets
 
 EXPOSE 4567
 
-CMD ["fakes3", "--root=/buckets", "--port=4567"]
+CMD ["fakes3", "--root=/buckets", "--port=4567", "-H=localhost"]
