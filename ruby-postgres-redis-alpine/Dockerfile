@@ -1,4 +1,4 @@
-FROM ruby:2.4.1-alpine
+FROM ruby:2.3.1-alpine
 
 # Install system dependencies 
 RUN apk update && \
@@ -6,7 +6,8 @@ RUN apk update && \
     openssh tzdata git make redis \
     python python-dev build-base \
     postgresql=9.5.6-r0 \
-    postgresql-dev=9.5.6-r0 
+    postgresql-dev=9.5.6-r0 \
+    postgresql-contrib=9.5.6-r0
 
 CMD ["redis-server", "/etc/redis.conf"]
 
