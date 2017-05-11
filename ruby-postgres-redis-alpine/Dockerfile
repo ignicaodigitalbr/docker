@@ -4,10 +4,14 @@ FROM ruby:2.3.1-alpine
 RUN apk update && \
     apk add --no-cache \
     openssh tzdata git make redis \
-    python python-dev build-base \
+    python python-dev build-base bash \
     postgresql=9.5.6-r0 \
     postgresql-dev=9.5.6-r0 \
     postgresql-contrib=9.5.6-r0
+
+RUN apk update && \
+    apk add --no-cache ca-certificates wget && \
+    update-ca-certificates
 
 CMD ["redis-server", "/etc/redis.conf"]
 
