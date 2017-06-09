@@ -5,5 +5,11 @@ RUN apt-get update && \
     git build-essential ca-certificates \
     libcurl3-dev mysql-client imagemagick \
     libmagickcore-dev libmagickwand-dev \
-    libmysqlclient-dev nodejs && \
+    libmysqlclient-dev npm nodejs && \
     rm -rf /var/lib/apt/lists/*
+
+RUN ln -s /usr/bin/nodejs /usr/bin/node
+
+RUN npm install bower -g && \
+    echo '{ "allow_root": true }' > /root/.bowerrc
+
