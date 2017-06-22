@@ -3,4 +3,4 @@ FROM ruby:2.3-alpine
 RUN apk add --no-cache \
     tzdata build-base nodejs \
     postgresql-client postgresql-dev \ 
-    bash git curl
+    cmake bash git curl
