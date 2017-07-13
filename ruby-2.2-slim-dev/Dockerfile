@@ -1,6 +1,8 @@
 FROM ruby:2.2-slim
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV VARDIR /app
+ENV GIT_DIR $VARDIR
 
 RUN useradd automation --shell /bin/bash --create-home
 
@@ -37,8 +39,6 @@ RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 RUN npm install bower -g && \
     echo '{ "allow_root": true }' > /root/.bowerrc
-
-ENV VARDIR /app
 
 RUN mkdir $VARDIR
 WORKDIR $VARDIR
