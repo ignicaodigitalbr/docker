@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'byebug'
+gem 'dotenv'
+gem 'database_cleaner'
+gem 'factory_girl'
+gem 'faker'
+gem 'pry'
+gem 'rake'
+gem 'redis'
+gem 'rspec'
