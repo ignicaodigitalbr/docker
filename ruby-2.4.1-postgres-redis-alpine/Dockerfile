@@ -7,7 +7,8 @@ RUN apk update && \
     python python-dev build-base bash \
     postgresql=9.5.6-r0 \
     postgresql-dev=9.5.6-r0 \
-    postgresql-contrib=9.5.6-r0
+    postgresql-contrib=9.5.6-r0 \
+    imagemagick
 
 RUN apk update && \
     apk add --no-cache ca-certificates wget && \
