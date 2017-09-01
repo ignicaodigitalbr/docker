@@ -6,6 +6,7 @@ RUN apk update && \
     build-base bash openssh \
     postgresql \
     postgresql-dev \
-    imagemagick
+    imagemagick \
+    python python-dev
 
 ENTRYPOINT ["/bin/sh"]
