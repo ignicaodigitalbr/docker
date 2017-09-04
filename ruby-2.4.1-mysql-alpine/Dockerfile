@@ -6,6 +6,7 @@ RUN apk update && \
     build-base bash openssh \
     mysql \
     mysql-client \
+    mysql-dev  \
     imagemagick \
     python python-dev
 
