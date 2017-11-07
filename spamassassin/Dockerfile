@@ -5,10 +5,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     apt-get install --no-install-recommends -yq spamassassin 
 
-USER spamassassin:spamassassin
-
-RUN mkdir -p /var/log/spamassassin && \
-             chown -R spamassassin:spamassassin /var/log/spamassassin
+RUN groupadd spamassassin && \
+    useradd -g spamassassin -s /bin/false -d /var/log/spamassassin spamassassin && \
+    mkdir -p /var/log/spamassassin && \
+    chown -R spamassassin:spamassassin /var/log/spamassassin
 
 ADD local.cf /etc/spamassassin/local.cf
 
