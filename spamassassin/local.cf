@@ -15,7 +15,7 @@
 #   Save spam messages as a message/rfc822 MIME attachment instead of
 #   modifying the original message (0: off, 2: use text/plain instead)
 #
-report_safe 0
+# report_safe 1
 
 
 #   Set which networks or hosts are considered 'trusted' by your mail
@@ -31,18 +31,18 @@ report_safe 0
 
 #   Set the threshold at which a message is considered spam (default: 5.0)
 #
-required_score 4.0
+# required_score 5.0
 
 
 #   Use Bayesian classifier (default: 1)
 #
-use_bayes 1
+# use_bayes 1
 
 
 #   Bayesian classifier auto-learning (default: 1)
 #
-bayes_auto_learn 1
-bayes_path /var/spamassassin/bayes_db
+# bayes_auto_learn 1
+
 
 #   Set headers which may provide inappropriate cues to the Bayesian
 #   classifier
@@ -51,9 +51,19 @@ bayes_path /var/spamassassin/bayes_db
 # bayes_ignore_header X-Spam-Flag
 # bayes_ignore_header X-Spam-Status
 
+bayes_path /var/spamassassin/bayes_db/bayes
+bayes_file_mode 0775
+
+#   Whether to decode non- UTF-8 and non-ASCII textual parts and recode
+#   them to UTF-8 before the text is given over to rules processing.
+#
+# normalize_charset 1
 
 #   Some shortcircuiting, if the plugin is enabled
 #
+razor_config /etc/spamassassin/.razor/razor-agent.conf
+razorhome =/etc/spamassassin/.razor
+
 ifplugin Mail::SpamAssassin::Plugin::Shortcircuit
 #
 #   default: strongly-whitelisted mails are *really* whitelisted now, if the
