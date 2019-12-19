@@ -579,7 +579,7 @@ GEM
       reek (~> 4.4)
       ruby_parser (~> 3.8)
       virtus (~> 1.0)
-    rubyzip (1.1.7)
+    rubyzip (1.3.0)
     safe_yaml (1.0.4)
     sass (3.4.15)
     sass-rails (5.0.3)
